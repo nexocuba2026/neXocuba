@@ -1,30 +1,27 @@
 const btnMenu = document.getElementById('btn-menu');
 const menu = document.getElementById('menu');
 
-btnMenu.addEventListener('click', () => {
+/* abrir y cerrar menú */
+btnMenu.addEventListener('click', (e) => {
+  e.stopPropagation();
   menu.classList.toggle('show');
 });
-function toggleMenu() {
-    document.getElementById("menuLateral").classList.toggle("activo");
-}
 
-function cerrarMenu() {
-    document.getElementById("menuLateral").classList.remove("activo");
-}
-
-/* cerrar al presionar un enlace */
-document.querySelectorAll("#menuLateral a").forEach(link => {
-    link.addEventListener("click", cerrarMenu);
+/* cerrar menú al presionar un enlace */
+document.querySelectorAll("#menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("show");
+  });
 });
 
-/* cerrar al hacer click fuera */
+/* cerrar menú al hacer click fuera */
 document.addEventListener("click", function(event) {
 
-    const menu = document.getElementById("menuLateral");
-    const boton = document.querySelector(".menu-btn");
+  const clickDentroMenu = menu.contains(event.target);
+  const clickBoton = btnMenu.contains(event.target);
 
-    if (!menu.contains(event.target) && !boton.contains(event.target)) {
-        menu.classList.remove("activo");
-    }
+  if (!clickDentroMenu && !clickBoton) {
+    menu.classList.remove("show");
+  }
 
 });
