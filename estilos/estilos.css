@@ -42,7 +42,7 @@ body { background:#fff; color:#000; line-height:1.6; }
 ul.estrategias li, ul.beneficios li { margin-bottom:10px; color:#555; }
 
 /* Pie de página */
-footer { background:#000; color:#fff; padding:40px 20px; border-top:4px solid #FF6600; margin-top:60px; }
+footer { background:#000; color:#fff; padding:40px 20px; border-top:4px solid #FF6600; margin-top:0px; }
 footer a { color:#FF6600; text-decoration:none; }
 
 /* Responsive */
