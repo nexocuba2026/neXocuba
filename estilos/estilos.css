@@ -1,167 +1,185 @@
 /* Reset y tipografía */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
 }
 
-body {
-    background-color: #FFFFFF;
-    color: #000000;
-    line-height: 1.6;
+body{
+  background-color:#FFFFFF;
+  color:#000000;
+  line-height:1.6;
 }
 
-.contenedor {
-    display: flex;
-    min-height: 100vh;
+/* Encabezado */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#000000;
+  color:#FFFFFF;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
 }
 
-/* Menú lateral */
-.menu-lateral {
-    width: 250px;
-    background-color: #000000;
-    padding: 30px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
+.header-logo img{
+  height:50px;
+  margin-right:15px;
 }
 
-.menu-lateral .logo {
-    font-size: 28px;
-    font-weight: 600;
-    color: #FF6600;
-    margin-bottom: 40px;
+.header-logo .eslogan{
+  font-weight:400;
+  color:#FF6600;
+  font-size:1rem;
 }
 
-.menu-lateral ul {
-    list-style: none;
+.menu-hamburguesa{
+  font-size:28px;
+  background:none;
+  border:none;
+  color:#FF6600;
+  cursor:pointer;
 }
 
-.menu-lateral ul li {
-    margin: 20px 0;
+/* Menú desplegable */
+.menu-desplegable{
+  display:none;
+  background:#000000;
+  position:fixed;
+  top:70px;
+  right:0;
+  width:250px;
+  height:100%;
+  padding:20px;
+  z-index:999;
 }
 
-.menu-lateral a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
+.menu-desplegable ul{
+  list-style:none;
 }
 
-.menu-lateral a:hover {
-    color: #FF6600;
+.menu-desplegable ul li{
+  margin:20px 0;
+}
+
+.menu-desplegable ul li a{
+  color:#FFFFFF;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.menu-desplegable ul li a:hover{
+  color:#FF6600;
 }
 
 /* Contenido principal */
-.contenido {
-    margin-left: 250px;
-    padding: 60px;
+.contenido{
+  padding:120px 20px 40px 20px;
+  max-width:1100px;
+  margin:0 auto;
 }
 
-/* Secciones */
-section {
-    margin-bottom: 100px;
+section{
+  margin-bottom:80px;
 }
 
 /* Hero */
-.hero {
-    background-color: #F5F5F5;
-    padding: 100px 20px;
-    border-radius: 12px;
+.hero{
+  background-color:#F5F5F5;
+  padding:80px 20px;
+  border-radius:12px;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    color: #000000;
-    margin-bottom: 20px;
+.hero h1{
+  font-size:2.5rem;
+  color:#000000;
+  margin-bottom:20px;
 }
 
-.hero p {
-    color: #555555;
-    margin-bottom: 30px;
+.hero p{
+  color:#555555;
+  margin-bottom:20px;
 }
 
-.boton-acento {
-    background-color: #FF6600;
-    color: #FFFFFF;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s;
+.boton-acento{
+  background-color:#FF6600;
+  color:#FFFFFF;
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  transition:background 0.3s;
 }
 
-.boton-acento:hover {
-    background-color: #e05500;
+.boton-acento:hover{
+  background-color:#e05500;
 }
 
 /* Tarjetas de servicios */
-.tarjetas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.tarjetas{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
 }
 
-.tarjeta {
-    background-color: #F0F0F0;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+.tarjeta{
+  background-color:#F0F0F0;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0px 4px 8px rgba(0,0,0,0.1);
+  transition:transform 0.3s;
 }
 
-.tarjeta h3 {
-    color: #FF6600;
-    margin-bottom: 15px;
+.tarjeta h3{
+  color:#FF6600;
+  margin-bottom:15px;
 }
 
-.tarjeta p {
-    color: #555555;
+.tarjeta p{
+  color:#555555;
 }
 
-.tarjeta:hover {
-    transform: translateY(-5px);
+.tarjeta:hover{
+  transform:translateY(-5px);
 }
 
-/* Listas numeradas y beneficios */
-.metodologia span {
-    font-weight: 600;
-    color: #FF6600;
-    margin-right: 10px;
+/* Metodología y listas */
+.metodologia span{
+  font-weight:600;
+  color:#FF6600;
+  margin-right:10px;
 }
 
-ul.beneficios li,
-ul.estrategias li {
-    margin-bottom: 10px;
-    color: #555555;
+ul.estrategias li, ul.beneficios li{
+  margin-bottom:10px;
+  color:#555555;
+}
+
+/* Pie de página */
+footer{
+  background:#000000;
+  color:#FFFFFF;
+  padding:40px 20px;
+  border-top:4px solid #FF6600;
+  margin-top:60px;
+}
+
+footer a{
+  color:#FF6600;
+  text-decoration:none;
 }
 
 /* Adaptabilidad móvil */
-@media screen and (max-width: 768px) {
-    .contenedor {
-        flex-direction: column;
-    }
+@media screen and (max-width:768px){
+  .contenido{
+    padding:100px 15px 40px 15px;
+  }
 
-    .menu-lateral {
-        width: 100%;
-        height: auto;
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .menu-lateral ul {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-    }
-
-    .contenido {
-        margin-left: 0;
-        padding: 30px 20px;
-    }
+  .menu-desplegable{
+    width:70%;
+  }
 }
