@@ -1,27 +1,27 @@
 const btnMenu = document.getElementById('btn-menu');
 const menu = document.getElementById('menu');
 
-/* abrir y cerrar menú */
-btnMenu.addEventListener('click', (e) => {
-  e.stopPropagation();
+/* abrir o cerrar menú al presionar el botón */
+btnMenu.addEventListener('click', function(event) {
+  event.stopPropagation();
   menu.classList.toggle('show');
 });
 
 /* cerrar menú al presionar un enlace */
-document.querySelectorAll("#menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("show");
+document.querySelectorAll('#menu a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    menu.classList.remove('show');
   });
 });
 
-/* cerrar menú al hacer click fuera */
-document.addEventListener("click", function(event) {
+/* cerrar menú al hacer clic fuera */
+document.addEventListener('click', function(event) {
 
   const clickDentroMenu = menu.contains(event.target);
-  const clickBoton = btnMenu.contains(event.target);
+  const clickEnBoton = btnMenu.contains(event.target);
 
-  if (!clickDentroMenu && !clickBoton) {
-    menu.classList.remove("show");
+  if (!clickDentroMenu && !clickEnBoton) {
+    menu.classList.remove('show');
   }
 
 });
