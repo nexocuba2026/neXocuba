@@ -51,3 +51,17 @@ footer a { color:#FF6600; text-decoration:none; }
   .menu-desplegable ul { display:flex; justify-content:space-around; }
   .menu-desplegable ul li { margin:0; }
 }
+/* Logo inferior del menú lateral */
+.menu-logo-inferior {
+  position: absolute;
+  bottom: 10px;       /* más cerca del borde inferior */
+  left: 50%;           /* mover al centro horizontal */
+  transform: translateX(-50%); /* centrar exactamente */
+  width: auto;
+  text-align: center;
+}
+
+.menu-logo-inferior .logo-inferior {
+  height: 50px;       /* tamaño del logo, ajustable */
+  filter: grayscale(100%); /* asegura que sea monocromático */
+}
