@@ -1,16 +1,26 @@
 const btnMenu = document.getElementById('btn-menu');
 const menu = document.getElementById('menu');
 
-/* abrir o cerrar menú al presionar el botón */
+/* abrir o cerrar menú */
 btnMenu.addEventListener('click', function(event) {
   event.stopPropagation();
   menu.classList.toggle('show');
+
+  if (menu.classList.contains('show')) {
+    menu.style.opacity = "0";
+    menu.style.transform = "translateX(20px)";
+
+    setTimeout(() => {
+      menu.style.opacity = "1";
+      menu.style.transform = "translateX(0)";
+    }, 10);
+  }
 });
 
-/* cerrar menú al presionar un enlace */
+/* cerrar menú al presionar enlace */
 document.querySelectorAll('#menu a').forEach(function(link) {
   link.addEventListener('click', function() {
-    menu.classList.remove('show');
+    cerrarMenu();
   });
 });
 
@@ -21,7 +31,17 @@ document.addEventListener('click', function(event) {
   const clickEnBoton = btnMenu.contains(event.target);
 
   if (!clickDentroMenu && !clickEnBoton) {
-    menu.classList.remove('show');
+    cerrarMenu();
   }
 
 });
+
+/* función de cierre con animación */
+function cerrarMenu() {
+  menu.style.opacity = "0";
+  menu.style.transform = "translateX(20px)";
+
+  setTimeout(() => {
+    menu.classList.remove('show');
+  }, 200);
+}
