@@ -1,0 +1,21 @@
+{
+  "name": "NEXO Agencia",
+  "short_name": "NEXO",
+  "description": "Agencia de marketing, diseño y optimización de negocios locales.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F5F5F5",
+  "theme_color": "#F28C38",
+  "icons": [
+    {
+      "src": "imagenes/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "imagenes/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
