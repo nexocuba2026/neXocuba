@@ -4,6 +4,7 @@
   "description": "Agencia de marketing, diseño y optimización de negocios locales.",
   "start_url": "./index.html",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#F5F5F5",
   "theme_color": "#F28C38",
   "icons": [
@@ -16,6 +17,12 @@
       "src": "imagenes/logo-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "imagenes/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
