@@ -286,29 +286,34 @@ footer a {
   right: 25px;
   top: 50%;
   transform: translateY(-50%);
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 52px;
-  height: 52px;
+  width: 38px;
+  height: 38px;
 
-  background: #F28C38;
-  color: #fff;
+  background: transparent;
 
-  border-radius: 14px;
+  color: #F28C38;
 
-  font-size: 26px;
-  font-weight: bold;
+  border: 1.5px solid #F28C38;
+  border-radius: 8px;
+
+  font-size: 20px;
+  font-weight: 600;
 
   text-decoration: none;
 
-  box-shadow: 0 6px 18px rgba(242, 140, 56, 0.35);
-
-  transition: 0.3s ease;
+  transition: 0.25s ease;
 }
 
+.btn-back:hover {
+  background: #F28C38;
+  color: #fff;
+  transform: translateY(-50%) translateX(-3px);
+}
 .btn-back:hover {
   background: #D96A1F;
   transform: translateY(-50%) scale(1.08);
