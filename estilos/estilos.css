@@ -286,11 +286,55 @@ footer a {
   transition: 0.3s;
 }
 
-.btn-back:hover {
-  transform: translateX(-3px);
-  color: #D96A1F;
+.btn-back {
+  font-size: 30px;
+  color: #F28C38;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
+.btn-back:hover {
+  background: rgba(242, 140, 56, 0.15);
+  transform: translateX(-4px);
+  color: #D96A1F;
+}
 .contenido {
   padding-top: 140px;
+}
+/* TARJETA: estructura para empujar botón abajo */
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Contenedor del contenido superior (opcional pero recomendado) */
+.tarjeta-content {
+  flex: 1;
+}
+
+/* Botón ver más */
+.btn-vermas {
+  align-self: flex-end;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  padding: 8px 14px;
+  background: #F28C38;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-vermas:hover {
+  background: #D96A1F;
+  transform: translateY(-2px);
 }
