@@ -63,7 +63,6 @@ body {
   background:#2E2E2E; 
   padding:30px 20px; 
   z-index:999; 
-
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateX(20px);
@@ -93,9 +92,9 @@ body {
   transform:translateX(0);
 }
 
-/* Contenido */
+/* Contenido (CORREGIDO) */
 .contenido { 
-  padding:140px 20px 60px 20px; 
+  padding:130px 20px 60px 20px; 
   max-width:1100px; 
   margin:0 auto; 
 }
@@ -166,11 +165,11 @@ h2 {
   position:relative;
   overflow:hidden;
 
-  /* 🔥 IMPORTANTE PARA EL BOTÓN */
   display:flex;
   flex-direction:column;
 }
 
+/* Barra superior */
 .tarjeta::before {
   content:"";
   position:absolute;
@@ -188,25 +187,29 @@ h2 {
 
 .tarjeta p { 
   color:#555; 
-  flex:1; /* empuja el botón hacia abajo */
+  flex:1;
 }
 
 .tarjeta:hover { 
   transform:translateY(-8px); 
 }
 
-/* 🔥 BOTÓN VER MÁS (AJUSTE NUEVO) */
-.tarjeta .btn-container {
-  display:flex;
-  justify-content:flex-end;
-  margin-top:15px;
+/* BOTÓN VER MÁS (CORREGIDO FINAL) */
+.btn-vermas {
+  align-self:flex-end;
+  margin-top:20px;
+  font-size:0.8rem;
+  padding:5px 14px;
+  background:#F28C38;
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+  transition:0.3s;
 }
 
-.tarjeta .btn-container a {
-  font-size: 0.85rem;
-  padding: 8px 16px;
-  border-radius:8px;
-  box-shadow:0 4px 10px rgba(242,140,56,0.3);
+.btn-vermas:hover {
+  background:#D96A1F;
+  transform:translateY(-2px);
 }
 
 /* Listas */
@@ -277,15 +280,7 @@ footer a {
   opacity:0.4;
 }
 
-.btn-back {
-  font-size: 28px;
-  color: #F28C38;
-  text-decoration: none;
-  margin-right: 15px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
+/* BOTÓN VOLVER (ARREGLADO SIN DUPLICADOS) */
 .btn-back {
   font-size: 30px;
   color: #F28C38;
@@ -305,36 +300,4 @@ footer a {
   background: rgba(242, 140, 56, 0.15);
   transform: translateX(-4px);
   color: #D96A1F;
-}
-.contenido {
-  padding-top: 140px;
-}
-/* TARJETA: estructura para empujar botón abajo */
-.tarjeta {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Contenedor del contenido superior (opcional pero recomendado) */
-.tarjeta-content {
-  flex: 1;
-}
-
-/* Botón ver más */
-.btn-vermas {
-  align-self: flex-end;
-  margin-top: 20px;
-  font-size: 0.8rem;
-  padding: 8px 14px;
-  background: #F28C38;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn-vermas:hover {
-  background: #D96A1F;
-  transform: translateY(-2px);
 }
