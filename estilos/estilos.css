@@ -258,3 +258,19 @@ footer a {
   height:50px;
   opacity:0.4;
 }
+.btn-back {
+  font-size: 28px;
+  color: #F28C38;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  transform: translateX(-3px);
+  color: #D96A1F;
+}
+.contenido {
+  padding-top: 140px;
+}
