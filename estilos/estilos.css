@@ -64,7 +64,6 @@ body {
   padding:30px 20px; 
   z-index:999; 
 
-  /* Animación */
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateX(20px);
@@ -166,6 +165,10 @@ h2 {
   transition:0.3s; 
   position:relative;
   overflow:hidden;
+
+  /* 🔥 IMPORTANTE PARA EL BOTÓN */
+  display:flex;
+  flex-direction:column;
 }
 
 .tarjeta::before {
@@ -185,10 +188,25 @@ h2 {
 
 .tarjeta p { 
   color:#555; 
+  flex:1; /* empuja el botón hacia abajo */
 }
 
 .tarjeta:hover { 
   transform:translateY(-8px); 
+}
+
+/* 🔥 BOTÓN VER MÁS (AJUSTE NUEVO) */
+.tarjeta .btn-container {
+  display:flex;
+  justify-content:flex-end;
+  margin-top:15px;
+}
+
+.tarjeta .btn-container a {
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius:8px;
+  box-shadow:0 4px 10px rgba(242,140,56,0.3);
 }
 
 /* Listas */
@@ -258,6 +276,7 @@ footer a {
   height:50px;
   opacity:0.4;
 }
+
 .btn-back {
   font-size: 28px;
   color: #F28C38;
@@ -271,6 +290,7 @@ footer a {
   transform: translateX(-3px);
   color: #D96A1F;
 }
+
 .contenido {
   padding-top: 140px;
 }
