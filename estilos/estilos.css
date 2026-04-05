@@ -282,18 +282,37 @@ footer a {
 
 /* BOTÓN VOLVER (ARREGLADO SIN DUPLICADOS) */
 .btn-back {
-  font-size: 30px;
-  color: #F28C38;
-  text-decoration: none;
-  margin-right: 15px;
-  font-weight: bold;
-  display: inline-flex;
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  transition: 0.3s;
+
+  width: 52px;
+  height: 52px;
+
+  background: #F28C38;
+  color: #fff;
+
+  border-radius: 14px;
+
+  font-size: 26px;
+  font-weight: bold;
+
+  text-decoration: none;
+
+  box-shadow: 0 6px 18px rgba(242, 140, 56, 0.35);
+
+  transition: 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #D96A1F;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 10px 25px rgba(242, 140, 56, 0.45);
 }
 
 .btn-back:hover {
