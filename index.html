@@ -8,12 +8,10 @@
     <meta name="theme-color" content="#F28C38">
     <link rel="manifest" href="manifest.json">
     
-    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -30,15 +28,9 @@
             --radio: 12px;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         
         body {
             font-family: 'Poppins', sans-serif;
@@ -48,460 +40,112 @@
             overflow-x: hidden;
         }
         
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            color: var(--negro);
-            line-height: 1.3;
-        }
+        h1, h2, h3, h4 { font-weight: 700; color: var(--negro); line-height: 1.3; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
         
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 80px 0; }
+        .seccion-clara { background-color: var(--gris-claro); }
         
-        ul {
-            list-style: none;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .seccion-clara {
-            background-color: var(--gris-claro);
-        }
-        
-        /* Botones */
         .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            font-weight: 600;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: var(--transicion);
-            font-size: 1rem;
-            text-align: center;
+            display: inline-block; padding: 14px 32px; font-weight: 600;
+            border-radius: 50px; border: none; cursor: pointer;
+            transition: var(--transicion); font-size: 1rem; text-align: center;
         }
+        .btn-primario { background-color: var(--naranja); color: var(--blanco); }
+        .btn-primario:hover { background-color: var(--naranja-oscuro); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(242, 140, 56, 0.3); }
+        .btn-outline { background: transparent; border: 2px solid var(--naranja); color: var(--naranja); }
+        .btn-outline:hover { background: var(--naranja); color: var(--blanco); }
         
-        .btn-primario {
-            background-color: var(--naranja);
-            color: var(--blanco);
-        }
-        
-        .btn-primario:hover {
-            background-color: var(--naranja-oscuro);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(242, 140, 56, 0.3);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--naranja);
-            color: var(--naranja);
-        }
-        
-        .btn-outline:hover {
-            background: var(--naranja);
-            color: var(--blanco);
-        }
-        
-        /* Encabezado */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            z-index: 1000; padding: 15px 30px; display: flex;
+            justify-content: space-between; align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
+        .header-izquierda { display: flex; align-items: center; gap: 15px; }
+        .logo { height: 45px; width: auto; }
+        .eslogan { font-weight: 500; color: var(--gris-medio); font-size: 0.9rem; border-left: 2px solid var(--naranja); padding-left: 15px; }
         
-        .header-izquierda {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .menu-toggle { background: none; border: none; font-size: 28px; cursor: pointer; display: none; color: var(--negro); }
+        .nav-menu { display: flex; align-items: center; gap: 25px; }
+        .nav-menu a { font-weight: 500; color: var(--gris-oscuro); transition: var(--transicion); position: relative; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--naranja); transition: var(--transicion); }
+        .nav-menu a:hover { color: var(--naranja); }
+        .nav-menu a:hover::after { width: 100%; }
         
-        .logo {
-            height: 45px;
-            width: auto;
-        }
-        
-        .eslogan {
-            font-weight: 500;
-            color: var(--gris-medio);
-            font-size: 0.9rem;
-            border-left: 2px solid var(--naranja);
-            padding-left: 15px;
-        }
-        
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            display: none;
-            color: var(--negro);
-        }
-        
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-        
-        .nav-menu a {
-            font-weight: 500;
-            color: var(--gris-oscuro);
-            transition: var(--transicion);
-            position: relative;
-        }
-        
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--naranja);
-            transition: var(--transicion);
-        }
-        
-        .nav-menu a:hover {
-            color: var(--naranja);
-        }
-        
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-        
-        /* Overlay para cerrar menú */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.3);
-            z-index: 999;
-            display: none;
-        }
-        
-        .menu-overlay.active {
-            display: block;
-        }
+        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 999; display: none; }
+        .menu-overlay.active { display: block; }
         
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
+            .menu-toggle { display: block; }
             .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                justify-content: center;
-                gap: 30px;
-                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-                transition: right 0.3s ease;
-                z-index: 1001;
-                padding: 40px 30px;
+                position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+                background: white; flex-direction: column; justify-content: center;
+                gap: 30px; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                transition: right 0.3s ease; z-index: 1001; padding: 40px 30px;
             }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .eslogan {
-                display: none;
-            }
+            .nav-menu.active { right: 0; }
+            .eslogan { display: none; }
         }
         
-        /* Hero */
         .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
+            min-height: 90vh; display: flex; align-items: center;
             background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
-            padding-top: 80px;
-            text-align: center;
+            padding-top: 80px; text-align: center;
         }
+        .hero-contenido { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--negro); }
+        .hero h1 span { color: var(--naranja); display: block; }
+        .hero p { font-size: 1.1rem; color: var(--gris-medio); margin-bottom: 30px; line-height: 1.8; }
         
-        .hero-contenido {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; } }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--negro);
-        }
+        .que-es-nexo { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .que-es-nexo .texto p { margin-bottom: 15px; color: var(--gris-medio); }
+        .imagen-placeholder { background: #e0e0e0; height: 300px; border-radius: var(--radio); display: flex; align-items: center; justify-content: center; color: #999; font-weight: 500; }
         
-        .hero h1 span {
-            color: var(--naranja);
-            display: block;
-        }
+        @media (max-width: 768px) { .que-es-nexo { grid-template-columns: 1fr; } }
         
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--gris-medio);
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
+        .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .servicio-card { background: white; border-radius: var(--radio); padding: 40px 30px; box-shadow: var(--sombra); transition: var(--transicion); text-align: center; border: 1px solid transparent; }
+        .servicio-card:hover { transform: translateY(-8px); border-color: var(--naranja); }
+        .servicio-card .icono { font-size: 2.5rem; color: var(--naranja); margin-bottom: 20px; }
+        .servicio-card h3 { margin-bottom: 15px; }
+        .servicio-card p { color: var(--gris-medio); margin-bottom: 20px; }
         
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
+        .pasos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; counter-reset: paso; }
+        .paso { position: relative; background: white; padding: 40px 30px; border-radius: var(--radio); box-shadow: var(--sombra); text-align: center; }
+        .paso::before { counter-increment: paso; content: counter(paso); position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 45px; height: 45px; background: var(--naranja); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
         
-        /* Qué es NEXO */
-        .que-es-nexo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
+        .lista-iconos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .lista-iconos li { display: flex; align-items: baseline; gap: 12px; background: white; padding: 20px; border-radius: var(--radio); box-shadow: var(--sombra); }
+        .lista-iconos i { color: var(--naranja); font-size: 1.2rem; margin-top: 5px; }
         
-        .que-es-nexo .texto p {
-            margin-bottom: 15px;
-            color: var(--gris-medio);
-        }
+        .contacto-contenido { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contacto-info i { color: var(--naranja); margin-right: 10px; width: 20px; }
+        .contacto-info a { color: var(--naranja); font-weight: 500; }
+        .redes-sociales { display: flex; gap: 15px; margin-top: 25px; }
+        .redes-sociales a { width: 40px; height: 40px; border-radius: 50%; background: var(--negro); color: white; display: flex; align-items: center; justify-content: center; transition: var(--transicion); }
+        .redes-sociales a:hover { background: var(--naranja); transform: translateY(-3px); }
         
-        .imagen-placeholder {
-            background: #e0e0e0;
-            height: 300px;
-            border-radius: var(--radio);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-weight: 500;
-        }
+        .contacto-form input, .contacto-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: var(--radio); font-family: inherit; transition: var(--transicion); }
+        .contacto-form input:focus, .contacto-form textarea:focus { border-color: var(--naranja); outline: none; }
         
-        @media (max-width: 768px) {
-            .que-es-nexo {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 768px) { .contacto-contenido { grid-template-columns: 1fr; } }
         
-        /* Servicios */
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
+        .footer { background: var(--negro); color: white; text-align: center; padding: 30px 20px; }
         
-        .servicio-card {
-            background: white;
-            border-radius: var(--radio);
-            padding: 40px 30px;
-            box-shadow: var(--sombra);
-            transition: var(--transicion);
-            text-align: center;
-            border: 1px solid transparent;
-        }
-        
-        .servicio-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--naranja);
-        }
-        
-        .servicio-card .icono {
-            font-size: 2.5rem;
-            color: var(--naranja);
-            margin-bottom: 20px;
-        }
-        
-        .servicio-card h3 {
-            margin-bottom: 15px;
-        }
-        
-        .servicio-card p {
-            color: var(--gris-medio);
-            margin-bottom: 20px;
-        }
-        
-        /* Metodología */
-        .pasos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            counter-reset: paso;
-        }
-        
-        .paso {
-            position: relative;
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--radio);
-            box-shadow: var(--sombra);
-            text-align: center;
-        }
-        
-        .paso::before {
-            counter-increment: paso;
-            content: counter(paso);
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 45px;
-            height: 45px;
-            background: var(--naranja);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        
-        /* Estrategias y beneficios */
-        .lista-iconos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .lista-iconos li {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            background: white;
-            padding: 20px;
-            border-radius: var(--radio);
-            box-shadow: var(--sombra);
-        }
-        
-        .lista-iconos i {
-            color: var(--naranja);
-            font-size: 1.2rem;
-            margin-top: 5px;
-        }
-        
-        /* Contacto */
-        .contacto-contenido {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        
-        .contacto-info i {
-            color: var(--naranja);
-            margin-right: 10px;
-            width: 20px;
-        }
-        
-        .contacto-info a {
-            color: var(--naranja);
-            font-weight: 500;
-        }
-        
-        .redes-sociales {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .redes-sociales a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--negro);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transicion);
-        }
-        
-        .redes-sociales a:hover {
-            background: var(--naranja);
-            transform: translateY(-3px);
-        }
-        
-        .contacto-form input,
-        .contacto-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 2px solid #ddd;
-            border-radius: var(--radio);
-            font-family: inherit;
-            transition: var(--transicion);
-        }
-        
-        .contacto-form input:focus,
-        .contacto-form textarea:focus {
-            border-color: var(--naranja);
-            outline: none;
-        }
-        
-        @media (max-width: 768px) {
-            .contacto-contenido {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Footer */
-        .footer {
-            background: var(--negro);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        
-        /* WhatsApp flotante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            background: #25d366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
-            z-index: 998;
-            transition: var(--transicion);
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 6px 20px rgba(37,211,102,0.3); z-index: 998; transition: var(--transicion); }
+        .whatsapp-float:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
 
-<!-- Overlay para cerrar menú -->
 <div class="menu-overlay" id="menu-overlay"></div>
 
-<!-- Encabezado -->
 <header class="header">
     <div class="header-izquierda">
         <img src="imagenes/logo.png" alt="Logo NEXO" class="logo">
@@ -519,7 +163,6 @@
     </nav>
 </header>
 
-<!-- Hero -->
 <section id="inicio" class="hero">
     <div class="hero-contenido">
         <h1>Impulsamos el crecimiento<br><span>de tu negocio</span></h1>
@@ -528,7 +171,6 @@
     </div>
 </section>
 
-<!-- Qué es NEXO -->
 <section id="que-es-nexo" class="seccion-clara">
     <div class="container">
         <h2 style="text-align:center; margin-bottom:40px;">Qué es NEXO</h2>
@@ -538,12 +180,14 @@
                 <p>Nuestra filosofía combina creatividad, análisis estratégico y resultados medibles. Nos encargamos de cada detalle para que tu negocio destaque frente a la competencia.</p>
                 <p>Además del marketing digital, diseñamos y producimos material gráfico como flyers, plegables, tarjetas corporativas, catálogos, carteles, señalética y todo tipo de comunicación visual para promocionar tu marca de manera profesional. También optimizamos el diseño del local, la disposición de productos y la experiencia del cliente, transformando tu espacio físico en un lugar atractivo que motiva la compra.</p>
             </div>
-            <div class="imagen-placeholder">Imagen representativa</div>
+            <div class="imagen-placeholder">
+                <span>Imagen representativa</span>
+                <!-- Puedes reemplazar esto por: <img src="imagenes/representativa.jpg" alt="NEXO" style="width:100%; border-radius:12px;"> -->
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Servicios -->
 <section id="servicios">
     <div class="container">
         <h2 style="text-align:center; margin-bottom:40px;">Servicios</h2>
@@ -576,7 +220,6 @@
     </div>
 </section>
 
-<!-- Metodología -->
 <section id="metodologia" class="seccion-clara">
     <div class="container">
         <h2 style="text-align:center; margin-bottom:40px;">Cómo trabajamos</h2>
@@ -589,7 +232,6 @@
     </div>
 </section>
 
-<!-- Estrategias -->
 <section id="estrategias">
     <div class="container">
         <h2 style="text-align:center; margin-bottom:40px;">Estrategias</h2>
@@ -603,7 +245,6 @@
     </div>
 </section>
 
-<!-- Beneficios -->
 <section id="beneficios" class="seccion-clara">
     <div class="container">
         <h2 style="text-align:center; margin-bottom:40px;">Beneficios</h2>
@@ -617,7 +258,6 @@
     </div>
 </section>
 
-<!-- Contacto -->
 <section id="contacto">
     <div class="container">
         <h2 style="text-align:center; margin-bottom:40px;">Contacto</h2>
@@ -635,28 +275,27 @@
                 </div>
                 <p style="margin-top:20px; font-weight:500;">Solicita tu asesoría gratuita y descubre cómo podemos ayudar a tu negocio a crecer.</p>
             </div>
-            <form class="contacto-form" id="formulario-contacto">
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Correo electrónico" required>
-                <textarea rows="4" placeholder="¿Cómo podemos ayudarte?"></textarea>
+            
+            <!-- ========== FORMULARIO CONECTADO A FORMSPREE ========== -->
+            <form class="contacto-form" action="https://formspree.io/f/mdayjvrk" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?"></textarea>
                 <button type="submit" class="btn btn-primario" style="width:100%;">Enviar mensaje</button>
             </form>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
     <p>&copy; 2025 NEXO - Todos los derechos reservados.</p>
 </footer>
 
-<!-- WhatsApp flotante -->
 <a href="https://wa.me/+5355415537" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
     <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
-    // Menú móvil
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     const menuOverlay = document.getElementById('menu-overlay');
@@ -665,36 +304,19 @@
         navMenu.classList.add('active');
         menuOverlay.classList.add('active');
     }
-
     function closeMenu() {
         navMenu.classList.remove('active');
         menuOverlay.classList.remove('active');
     }
 
     menuToggle.addEventListener('click', () => {
-        if (navMenu.classList.contains('active')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+        if (navMenu.classList.contains('active')) closeMenu();
+        else openMenu();
     });
 
-    // Cerrar menú al hacer clic en cualquier enlace
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Cerrar menú al hacer clic en el overlay
+    navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
     menuOverlay.addEventListener('click', closeMenu);
 
-    // Formulario de contacto
-    document.getElementById('formulario-contacto').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('¡Mensaje enviado! Nos pondremos en contacto contigo pronto.');
-        this.reset();
-    });
-
-    // Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
