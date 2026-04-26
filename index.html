@@ -7,13 +7,13 @@
     <meta name="description" content="Impulsamos tu negocio con marketing digital, diseño gráfico, diseño web y optimización de espacios comerciales. Solicita tu asesoría gratuita.">
     <meta name="theme-color" content="#F28C38">
     <link rel="manifest" href="manifest.json">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --naranja: #F28C38;
@@ -27,11 +27,11 @@
             --transicion: all 0.3s ease;
             --radio: 12px;
         }
-        
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         html { scroll-behavior: smooth; }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--gris-oscuro);
@@ -39,15 +39,15 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         h1, h2, h3, h4 { font-weight: 700; color: var(--negro); line-height: 1.3; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
-        
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 80px 0; }
         .seccion-clara { background-color: var(--gris-claro); }
-        
+
         .btn {
             display: inline-block; padding: 14px 32px; font-weight: 600;
             border-radius: 50px; border: none; cursor: pointer;
@@ -57,7 +57,7 @@
         .btn-primario:hover { background-color: var(--naranja-oscuro); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(242, 140, 56, 0.3); }
         .btn-outline { background: transparent; border: 2px solid var(--naranja); color: var(--naranja); }
         .btn-outline:hover { background: var(--naranja); color: var(--blanco); }
-        
+
         .header {
             position: fixed; top: 0; left: 0; width: 100%;
             background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
@@ -68,17 +68,17 @@
         .header-izquierda { display: flex; align-items: center; gap: 15px; }
         .logo { height: 45px; width: auto; }
         .eslogan { font-weight: 500; color: var(--gris-medio); font-size: 0.9rem; border-left: 2px solid var(--naranja); padding-left: 15px; }
-        
+
         .menu-toggle { background: none; border: none; font-size: 28px; cursor: pointer; display: none; color: var(--negro); }
         .nav-menu { display: flex; align-items: center; gap: 25px; }
         .nav-menu a { font-weight: 500; color: var(--gris-oscuro); transition: var(--transicion); position: relative; }
         .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--naranja); transition: var(--transicion); }
         .nav-menu a:hover { color: var(--naranja); }
         .nav-menu a:hover::after { width: 100%; }
-        
+
         .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 999; display: none; }
         .menu-overlay.active { display: block; }
-        
+
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             .nav-menu {
@@ -90,7 +90,7 @@
             .nav-menu.active { right: 0; }
             .eslogan { display: none; }
         }
-        
+
         .hero {
             min-height: 90vh; display: flex; align-items: center;
             background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
@@ -100,44 +100,57 @@
         .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--negro); }
         .hero h1 span { color: var(--naranja); display: block; }
         .hero p { font-size: 1.1rem; color: var(--gris-medio); margin-bottom: 30px; line-height: 1.8; }
-        
+
         @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; } }
-        
+
         .que-es-nexo { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .que-es-nexo .texto p { margin-bottom: 15px; color: var(--gris-medio); }
-        .imagen-placeholder { background: #e0e0e0; height: 300px; border-radius: var(--radio); display: flex; align-items: center; justify-content: center; color: #999; font-weight: 500; }
-        
+
+        /* Imagen representativa sin bordes ni sombras */
+        .imagen-representativa {
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            text-align: center;
+        }
+        .imagen-representativa img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
         @media (max-width: 768px) { .que-es-nexo { grid-template-columns: 1fr; } }
-        
+
         .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
         .servicio-card { background: white; border-radius: var(--radio); padding: 40px 30px; box-shadow: var(--sombra); transition: var(--transicion); text-align: center; border: 1px solid transparent; }
         .servicio-card:hover { transform: translateY(-8px); border-color: var(--naranja); }
         .servicio-card .icono { font-size: 2.5rem; color: var(--naranja); margin-bottom: 20px; }
         .servicio-card h3 { margin-bottom: 15px; }
         .servicio-card p { color: var(--gris-medio); margin-bottom: 20px; }
-        
+
         .pasos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; counter-reset: paso; }
         .paso { position: relative; background: white; padding: 40px 30px; border-radius: var(--radio); box-shadow: var(--sombra); text-align: center; }
         .paso::before { counter-increment: paso; content: counter(paso); position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 45px; height: 45px; background: var(--naranja); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
-        
+
         .lista-iconos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .lista-iconos li { display: flex; align-items: baseline; gap: 12px; background: white; padding: 20px; border-radius: var(--radio); box-shadow: var(--sombra); }
         .lista-iconos i { color: var(--naranja); font-size: 1.2rem; margin-top: 5px; }
-        
+
         .contacto-contenido { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .contacto-info i { color: var(--naranja); margin-right: 10px; width: 20px; }
         .contacto-info a { color: var(--naranja); font-weight: 500; }
         .redes-sociales { display: flex; gap: 15px; margin-top: 25px; }
         .redes-sociales a { width: 40px; height: 40px; border-radius: 50%; background: var(--negro); color: white; display: flex; align-items: center; justify-content: center; transition: var(--transicion); }
         .redes-sociales a:hover { background: var(--naranja); transform: translateY(-3px); }
-        
+
         .contacto-form input, .contacto-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: var(--radio); font-family: inherit; transition: var(--transicion); }
         .contacto-form input:focus, .contacto-form textarea:focus { border-color: var(--naranja); outline: none; }
-        
+
         @media (max-width: 768px) { .contacto-contenido { grid-template-columns: 1fr; } }
-        
+
         .footer { background: var(--negro); color: white; text-align: center; padding: 30px 20px; }
-        
+
         .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 6px 20px rgba(37,211,102,0.3); z-index: 998; transition: var(--transicion); }
         .whatsapp-float:hover { transform: scale(1.1); }
     </style>
@@ -180,8 +193,8 @@
                 <p>Nuestra filosofía combina creatividad, análisis estratégico y resultados medibles. Nos encargamos de cada detalle para que tu negocio destaque frente a la competencia.</p>
                 <p>Además del marketing digital, diseñamos y producimos material gráfico como flyers, plegables, tarjetas corporativas, catálogos, carteles, señalética y todo tipo de comunicación visual para promocionar tu marca de manera profesional. También optimizamos el diseño del local, la disposición de productos y la experiencia del cliente, transformando tu espacio físico en un lugar atractivo que motiva la compra.</p>
             </div>
-            <div class="imagen-placeholder">
-                <img src="imagenes/representativa.jpg" alt="NEXO" style="width:100%; border-radius:12px;">
+            <div class="imagen-representativa">
+                <img src="imagenes/representativa.jpg" alt="NEXO - Agencia de marketing y diseño">
             </div>
         </div>
     </div>
@@ -274,7 +287,7 @@
                 </div>
                 <p style="margin-top:20px; font-weight:500;">Solicita tu asesoría gratuita y descubre cómo podemos ayudar a tu negocio a crecer.</p>
             </div>
-            
+
             <form class="contacto-form" action="https://formspree.io/f/mdayjvrk" method="POST">
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <input type="email" name="email" placeholder="Correo electrónico" required>
