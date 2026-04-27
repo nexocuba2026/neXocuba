@@ -25,12 +25,44 @@
         .ejemplo { background: var(--gris-claro); border-radius: var(--radio); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .ejemplo img { width: 100%; height: 180px; object-fit: cover; display: block; }
         .ejemplo p { padding: 15px; font-weight: 500; }
+
+        .termino-destacado {
+            color: var(--naranja);
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 1px dashed var(--naranja);
+            transition: 0.2s;
+        }
+        .termino-destacado:hover { opacity: 0.8; }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;
+            z-index: 2000; visibility: hidden; opacity: 0; transition: 0.3s;
+        }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+        .modal {
+            background: white; border-radius: var(--radio); padding: 30px;
+            max-width: 500px; width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative;
+        }
+        .modal h3 { color: var(--naranja); margin-bottom: 15px; }
+        .modal p { margin-bottom: 15px; }
+        .modal .cierre {
+            position: absolute; top: 15px; right: 15px; background: none; border: none;
+            font-size: 1.4rem; cursor: pointer; color: #999;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1><i class="fas fa-store"></i> Optimización del Espacio Comercial</h1>
         <p>Transformamos tu local en un espacio atractivo, funcional y orientado a la venta. Mejoramos la distribución, la señalética, la iluminación y la experiencia de compra para que tus clientes se sientan a gusto y compren más.</p>
+        <p>Trabajamos aspectos como 
+            <span class="termino-destacado" data-titulo="Distribución del espacio" data-descripcion="Reorganizamos los productos y el mobiliario para guiar el recorrido del cliente. Resultado: mayor exposición de productos y aumento de ventas.">distribución del espacio</span>, 
+            <span class="termino-destacado" data-titulo="Señalética" data-descripcion="Diseñamos letreros, carteles y gráficos que orientan e informan al cliente. Resultado: mejor comunicación y experiencia de compra.">señalética</span>, 
+            <span class="termino-destacado" data-titulo="Experiencia de compra" data-descripcion="Creamos un ambiente agradable que invita a quedarse y comprar. Resultado: clientes satisfechos y mayor fidelidad.">experiencia de compra</span> y 
+            <span class="termino-destacado" data-titulo="Optimización del punto de venta" data-descripcion="Analizamos el flujo de clientes y ubicamos estratégicamente los productos estrella. Resultado: incremento en el ticket promedio.">optimización del punto de venta</span>.
+        </p>
         
         <h2>Ejemplos de nuestro trabajo</h2>
         <div class="ejemplos">
@@ -50,5 +82,33 @@
         
         <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
     </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="cierre" id="cerrarModal">&times;</button>
+            <h3 id="modalTitulo"></h3>
+            <p id="modalDescripcion"></p>
+        </div>
+    </div>
+
+    <script>
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalTitulo = document.getElementById('modalTitulo');
+        const modalDescripcion = document.getElementById('modalDescripcion');
+        const cerrarModal = document.getElementById('cerrarModal');
+
+        document.querySelectorAll('.termino-destacado').forEach(termino => {
+            termino.addEventListener('click', () => {
+                modalTitulo.textContent = termino.dataset.titulo;
+                modalDescripcion.textContent = termino.dataset.descripcion;
+                modalOverlay.classList.add('active');
+            });
+        });
+
+        cerrarModal.addEventListener('click', () => modalOverlay.classList.remove('active'));
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
