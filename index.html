@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -29,9 +28,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--gris-oscuro);
@@ -39,11 +36,9 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-
         h1, h2, h3, h4 { font-weight: 700; color: var(--negro); line-height: 1.3; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 80px 0; }
         .seccion-clara { background-color: var(--gris-claro); }
@@ -58,6 +53,7 @@
         .btn-outline { background: transparent; border: 2px solid var(--naranja); color: var(--naranja); }
         .btn-outline:hover { background: var(--naranja); color: var(--blanco); }
 
+        /* --- MENÚ HAMBURGUESA SIEMPRE VISIBLE --- */
         .header {
             position: fixed; top: 0; left: 0; width: 100%;
             background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
@@ -69,27 +65,33 @@
         .logo { height: 45px; width: auto; }
         .eslogan { font-weight: 500; color: var(--gris-medio); font-size: 0.9rem; border-left: 2px solid var(--naranja); padding-left: 15px; }
 
-        .menu-toggle { background: none; border: none; font-size: 28px; cursor: pointer; display: none; color: var(--negro); }
-        .nav-menu { display: flex; align-items: center; gap: 25px; }
-        .nav-menu a { font-weight: 500; color: var(--gris-oscuro); transition: var(--transicion); position: relative; }
-        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--naranja); transition: var(--transicion); }
+        .menu-toggle { background: none; border: none; font-size: 28px; cursor: pointer; color: var(--negro); }
+
+        .nav-menu {
+            position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+            background: white; flex-direction: column; justify-content: center;
+            gap: 30px; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            transition: right 0.3s ease; z-index: 1001; padding: 40px 30px;
+        }
+        .nav-menu.active { right: 0; }
+        .nav-menu a {
+            font-weight: 500; color: var(--gris-oscuro); transition: var(--transicion); position: relative;
+        }
+        .nav-menu a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--naranja); transition: var(--transicion);
+        }
         .nav-menu a:hover { color: var(--naranja); }
         .nav-menu a:hover::after { width: 100%; }
 
         .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 999; display: none; }
         .menu-overlay.active { display: block; }
 
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-menu {
-                position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
-                background: white; flex-direction: column; justify-content: center;
-                gap: 30px; box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-                transition: right 0.3s ease; z-index: 1001; padding: 40px 30px;
-            }
-            .nav-menu.active { right: 0; }
+        @media (max-width: 600px) {
             .eslogan { display: none; }
+            .nav-menu { width: 85%; }
         }
+
+        /* --- FIN MENÚ --- */
 
         .hero {
             min-height: 90vh; display: flex; align-items: center;
@@ -100,26 +102,12 @@
         .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--negro); }
         .hero h1 span { color: var(--naranja); display: block; }
         .hero p { font-size: 1.1rem; color: var(--gris-medio); margin-bottom: 30px; line-height: 1.8; }
-
         @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; } }
 
         .que-es-nexo { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .que-es-nexo .texto p { margin-bottom: 15px; color: var(--gris-medio); }
-
-        /* Imagen representativa sin bordes ni sombras */
-        .imagen-representativa {
-            background: none;
-            border-radius: 0;
-            box-shadow: none;
-            text-align: center;
-        }
-        .imagen-representativa img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
+        .imagen-representativa { background: none; border-radius: 0; box-shadow: none; text-align: center; }
+        .imagen-representativa img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
         @media (max-width: 768px) { .que-es-nexo { grid-template-columns: 1fr; } }
 
         .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
@@ -143,10 +131,8 @@
         .redes-sociales { display: flex; gap: 15px; margin-top: 25px; }
         .redes-sociales a { width: 40px; height: 40px; border-radius: 50%; background: var(--negro); color: white; display: flex; align-items: center; justify-content: center; transition: var(--transicion); }
         .redes-sociales a:hover { background: var(--naranja); transform: translateY(-3px); }
-
         .contacto-form input, .contacto-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: var(--radio); font-family: inherit; transition: var(--transicion); }
         .contacto-form input:focus, .contacto-form textarea:focus { border-color: var(--naranja); outline: none; }
-
         @media (max-width: 768px) { .contacto-contenido { grid-template-columns: 1fr; } }
 
         .footer { background: var(--negro); color: white; text-align: center; padding: 30px 20px; }
@@ -164,8 +150,8 @@
         <img src="imagenes/logo.png" alt="Logo NEXO" class="logo">
         <span class="eslogan">Tu éxito es nuestro objetivo</span>
     </div>
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
-    <nav class="nav-menu" id="nav-menu">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+    <nav class="nav-menu" id="nav-menu" aria-hidden="true">
         <a href="#inicio">Inicio</a>
         <a href="#que-es-nexo">Qué es NEXO</a>
         <a href="#servicios">Servicios</a>
@@ -278,16 +264,15 @@
                 <p style="margin-bottom:20px;">Para más información sobre los servicios de NEXO, puedes:</p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:nexocuba2026@gmail.com">nexocuba2026@gmail.com</a></p>
                 <p><i class="fas fa-phone"></i> <a href="tel:+5355415537">+53 55415537</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/+5355415537?text=Hola%20NEXO%2C%20vi%20su%20p%C3%A1gina%20web%20y%20estoy%20interesado%2Fa%20en%20sus%20servicios.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank">Enviar mensaje por WhatsApp</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/+5355415537?text=Hola%20NEXO%2C%20vi%20su%20p%C3%A1gina%20web%20y%20estoy%20interesado%2Fa%20en%20sus%20servicios.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank" rel="noopener noreferrer">Enviar mensaje por WhatsApp</a></p>
                 <p style="margin-top:15px;">Síguenos en redes sociales:</p>
                 <div class="redes-sociales">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/share/17gjNyjUAm/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/nexo_cuba" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@nexocuba" target="_blank" rel="noopener noreferrer" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
                 </div>
                 <p style="margin-top:20px; font-weight:500;">Solicita tu asesoría gratuita y descubre cómo podemos ayudar a tu negocio a crecer.</p>
             </div>
-
             <form class="contacto-form" action="https://formspree.io/f/mdayjvrk" method="POST">
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <input type="email" name="email" placeholder="Correo electrónico" required>
@@ -302,9 +287,8 @@
     <p>&copy; 2025 NEXO - Todos los derechos reservados.</p>
 </footer>
 
-<!-- WhatsApp flotante con mensaje predefinido -->
-<a href="https://wa.me/+5355415537?text=Hola%20NEXO%2C%20vi%20su%20p%C3%A1gina%20web%20y%20estoy%20interesado%2Fa%20en%20sus%20servicios.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/+5355415537?text=Hola%20NEXO%2C%20vi%20su%20p%C3%A1gina%20web%20y%20estoy%20interesado%2Fa%20en%20sus%20servicios.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Enviar mensaje por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
 </a>
 
 <script>
@@ -315,21 +299,43 @@
     function openMenu() {
         navMenu.classList.add('active');
         menuOverlay.classList.add('active');
+        navMenu.setAttribute('aria-hidden', 'false');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.setAttribute('aria-label', 'Cerrar menú');
+        const firstLink = navMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
     }
+
     function closeMenu() {
         navMenu.classList.remove('active');
         menuOverlay.classList.remove('active');
+        navMenu.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menú');
+        menuToggle.focus();
     }
 
     menuToggle.addEventListener('click', () => {
-        if (navMenu.classList.contains('active')) closeMenu();
-        else openMenu();
+        if (navMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 
-    navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
     menuOverlay.addEventListener('click', closeMenu);
 
-    if ('serviceWorker' in navigator) {
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
                 .then(reg => console.log('Service Worker registrado'))
