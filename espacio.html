@@ -27,11 +27,9 @@
         .ejemplo p { padding: 15px; font-weight: 500; }
 
         .termino-destacado {
-            color: var(--naranja);
-            font-weight: 600;
-            cursor: pointer;
-            border-bottom: 1px dashed var(--naranja);
-            transition: 0.2s;
+            background: none; border: none; padding: 0; font: inherit;
+            color: var(--naranja); font-weight: 600; cursor: pointer;
+            border-bottom: 1px dashed var(--naranja); transition: 0.2s;
         }
         .termino-destacado:hover { opacity: 0.8; }
 
@@ -55,13 +53,13 @@
 </head>
 <body>
     <div class="container">
-        <h1><i class="fas fa-store"></i> Optimización del Espacio Comercial</h1>
+        <h1><i class="fas fa-store" aria-hidden="true"></i> Optimización del Espacio Comercial</h1>
         <p>Transformamos tu local en un espacio atractivo, funcional y orientado a la venta. Mejoramos la distribución, la señalética, la iluminación y la experiencia de compra para que tus clientes se sientan a gusto y compren más.</p>
         <p>Trabajamos aspectos como 
-            <span class="termino-destacado" data-titulo="Distribución del espacio" data-descripcion="Reorganizamos los productos y el mobiliario para guiar el recorrido del cliente. Resultado: mayor exposición de productos y aumento de ventas.">distribución del espacio</span>, 
-            <span class="termino-destacado" data-titulo="Señalética" data-descripcion="Diseñamos letreros, carteles y gráficos que orientan e informan al cliente. Resultado: mejor comunicación y experiencia de compra.">señalética</span>, 
-            <span class="termino-destacado" data-titulo="Experiencia de compra" data-descripcion="Creamos un ambiente agradable que invita a quedarse y comprar. Resultado: clientes satisfechos y mayor fidelidad.">experiencia de compra</span> y 
-            <span class="termino-destacado" data-titulo="Optimización del punto de venta" data-descripcion="Analizamos el flujo de clientes y ubicamos estratégicamente los productos estrella. Resultado: incremento en el ticket promedio.">optimización del punto de venta</span>.
+            <button class="termino-destacado" data-titulo="Distribución del espacio" data-descripcion="Reorganizamos los productos y el mobiliario para guiar el recorrido del cliente. Resultado: mayor exposición de productos y aumento de ventas.">distribución del espacio</button>, 
+            <button class="termino-destacado" data-titulo="Señalética" data-descripcion="Diseñamos letreros, carteles y gráficos que orientan e informan al cliente. Resultado: mejor comunicación y experiencia de compra.">señalética</button>, 
+            <button class="termino-destacado" data-titulo="Experiencia de compra" data-descripcion="Creamos un ambiente agradable que invita a quedarse y comprar. Resultado: clientes satisfechos y mayor fidelidad.">experiencia de compra</button> y 
+            <button class="termino-destacado" data-titulo="Optimización del punto de venta" data-descripcion="Analizamos el flujo de clientes y ubicamos estratégicamente los productos estrella. Resultado: incremento en el ticket promedio.">optimización del punto de venta</button>.
         </p>
         
         <h2>Ejemplos de nuestro trabajo</h2>
@@ -83,9 +81,9 @@
         <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
     </div>
 
-    <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
         <div class="modal">
-            <button class="cierre" id="cerrarModal">&times;</button>
+            <button class="cierre" id="cerrarModal" aria-label="Cerrar">&times;</button>
             <h3 id="modalTitulo"></h3>
             <p id="modalDescripcion"></p>
         </div>
@@ -95,20 +93,31 @@
         const modalOverlay = document.getElementById('modalOverlay');
         const modalTitulo = document.getElementById('modalTitulo');
         const modalDescripcion = document.getElementById('modalDescripcion');
-        const cerrarModal = document.getElementById('cerrarModal');
+        const cerrarModalBtn = document.getElementById('cerrarModal');
+        let ultimoFoco = null;
 
-        document.querySelectorAll('.termino-destacado').forEach(termino => {
-            termino.addEventListener('click', () => {
-                modalTitulo.textContent = termino.dataset.titulo;
-                modalDescripcion.textContent = termino.dataset.descripcion;
-                modalOverlay.classList.add('active');
-            });
-        });
+        function abrirModal(boton) {
+            modalTitulo.textContent = boton.dataset.titulo;
+            modalDescripcion.textContent = boton.dataset.descripcion;
+            modalOverlay.classList.add('active');
+            ultimoFoco = boton;
+            cerrarModalBtn.focus();
+            document.body.style.overflow = 'hidden';
+        }
 
-        cerrarModal.addEventListener('click', () => modalOverlay.classList.remove('active'));
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) modalOverlay.classList.remove('active');
-        });
+        function cerrarModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            if (ultimoFoco) {
+                ultimoFoco.focus();
+                ultimoFoco = null;
+            }
+        }
+
+        document.querySelectorAll('.termino-destacado').forEach(boton => boton.addEventListener('click', () => abrirModal(boton)));
+        cerrarModalBtn.addEventListener('click', cerrarModal);
+        modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) cerrarModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOverlay.classList.contains('active')) cerrarModal(); });
     </script>
 </body>
 </html>
